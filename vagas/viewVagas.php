@@ -42,10 +42,11 @@ if ($acao == 'editar'){
 <head>
     <meta charset="UTF-8">
     <!-- CSS only -->
+    <link rel="stylesheet" href="css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
+    
     <link rel="stylesheet" href="../estilo.css">
     <title>Vagas Disponíveis</title>
     <script>
@@ -60,19 +61,19 @@ if ($acao == 'editar'){
 </head>
 <body class='container'>
     <h1>Master Gestão de RH</h1>
-    <nav> <!-- menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- menu -->
         <ul class="menu">
-            <li id="cadastrar" class="itemenu"><a href="../novo/">Cadastrar Funcionário</a></li>
-            <li id="vagas" class="itemenu"><a href="vagas.php">Nova Vaga de Emprego</a></li>
-            <li id="viewVagas" class="itemenu"><a href="viewVagas.php">Visualizar Vagas Cadastradas</a></li>
-            <li id="funcionarioIndex" class="itemenu"><a href="../index.php">Visualizar Funcionarios</a></li>
-            <li id="cadUsuario" class="itemenu"><a href="../usuario/cadUsuario.php">Usuários</a></li>
+            <li id="cadastrar" class="navbar-brand"><a href="../novo/">Cadastrar Funcionário</a></li>
+            <li id="vagas" class="navbar-brand"><a href="vagas.php">Nova Vaga de Emprego</a></li>
+            <li id="viewVagas" class="navbar-brand"><a href="viewVagas.php">Visualizar Vagas Cadastradas</a></li>
+            <li id="funcionarioIndex" class="navbar-brand"><a href="../index.php">Visualizar Funcionarios</a></li>
+            <li id="cadUsuario" class="navbar-brand"><a href="../usuario/cadUsuario.php">Usuários</a></li>
         </ul>
     </nav>
     <h2>Vagas Disponíveis</h2>
     <section> <!-- pesquisa -->
         <div class='row'>
-            <div class='col'>
+            <div class="table-responsive-md">
                 <form action="" id='pesquisa'>
                     <div class='row'>
                         <div class='col-6'></div>
@@ -89,7 +90,7 @@ if ($acao == 'editar'){
     </section>
     <br>
     <section> <!-- tabela de vagas-->
-        <div class='row'>
+        <div class="table-responsive-md">
             <div class='col' id='listagem'>
                 <table class="table lista-vaga" id='lista'>
                 <thead>
@@ -107,7 +108,7 @@ if ($acao == 'editar'){
                             $query = 'SELECT * FROM vaga';
                             if ($busca != ""){ // se o usuário informou uma pesquisa
                                 $busca = '%'.$busca.'%'; // concatena o curiga * na pesquisa
-                                $query .= ' WHERE nome like :busca' ; // acrescenta a clausula where
+                                $query .= ' WHERE titulo like :busca' ; // acrescenta a clausula where
                             }
                             // prepara consulta
                             $stmt = $conexao->prepare($query);

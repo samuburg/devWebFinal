@@ -1,5 +1,5 @@
 <?php
-include_once "../config/conf.inc.php";    // arquivo de configuração
+include_once "../config/conf.php";    // arquivo de configuração
 // acao.php é responsável por inserir, editar e excluir um registro no banco de dados
 // aqui coletar os dados eviados pelo formulário de cadastro via POST
 $nome =  isset($_POST['nome'])?$_POST['nome']:"";
@@ -41,7 +41,7 @@ if ($acao == 'excluir'){ // exclui um registro do banco de dados
                            WHERE id = :id';
             else // senão será inserido um novo registro
                 $query = 'INSERT INTO usuario (nome, email, senha) 
-                               VALUES (:nome, :email, :senha)';
+                               VALUES (:nome, :email, AES_ENCRYPT(:senha, "chave"))';
             // preparar consulta
             $stmt = $conexao->prepare($query);
             // vincular variaveis com a consulta

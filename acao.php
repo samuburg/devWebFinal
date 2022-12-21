@@ -1,6 +1,6 @@
 
 <?php
-include_once ('../config/conf.php');
+include_once ('config/conf.php');
 //$_SERVER['DOCUMENT_ROOT'];
 //var_dump(JSON); -MITO
 $id = isset($_POST['id'])?$_POST['id']:0;  // teste ISSET é para verificar se os dados foram enviad
@@ -31,7 +31,7 @@ if ($acao == 'excluir'){ // exclui um registro do banco de dados
         $stmt->bindValue(':id',$id);
         // executar a consulta
         if ($stmt->execute())
-            header('location: ../index.php');
+            header('location: index.php');
         else
             echo 'Erro ao excluir dados';
     }catch(PDOException $e){ // se ocorrer algum erro na execuçao da conexão com o banco executará o bloco abaixo

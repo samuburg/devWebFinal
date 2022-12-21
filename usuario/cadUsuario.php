@@ -1,5 +1,5 @@
 <?php
-include_once "../config/conf.inc.php";   
+include_once "../config/conf.php";   
 // pega variáveis enviadas via GET - são enviadas para edição de um registro
 $acao = isset($_GET['acao'])?$_GET['acao']:"";
 $id = isset($_GET['id'])?$_GET['id']:0;
@@ -51,13 +51,13 @@ if ($acao == 'editar'){
 </head>
 <body class='container'>
     <h1>Master Gestão de RH</h1>
-    <nav> <!-- menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- menu -->
         <ul class="menu">
-            <li id="cadastrar" class="itemenu"><a href="../novo/">Cadastrar Funcionário</a></li>
-            <li id="vagas" class="itemenu"><a href="../vagas/vagas.php">Nova Vaga de Emprego</a></li>
-            <li id="viewVagas" class="itemenu"><a href="../vagas/viewVagas.php">Visualizar Vagas Cadastradas</a></li>
-            <li id="funcionarioIndex" class="itemenu"><a href="../index.php">Visualizar Funcionarios</a></li>
-            <li id="cadUsuario" class="itemenu"><a href="cadUsuario.php">Usuários</a></li>
+            <li id="cadastrar" class="navbar-brand"><a href="../novo/">Cadastrar Funcionário</a></li>
+            <li id="vagas" class="navbar-brand"><a href="../vagas/vagas.php">Nova Vaga de Emprego</a></li>
+            <li id="viewVagas" class="navbar-brand"><a href="../vagas/viewVagas.php">Visualizar Vagas Cadastradas</a></li>
+            <li id="funcionarioIndex" class="navbar-brand"><a href="../index.php">Visualizar Funcionarios</a></li>
+            <li id="cadUsuario" class="navbar-brand"><a href="cadUsuario.php">Usuários</a></li>
         </ul>
     </nav>
     <h2>Cadastrar novo Usuário</h2>

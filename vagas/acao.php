@@ -1,15 +1,5 @@
 <?php
-// verificar dados enviados
- //echo 'Dados enviados:<br>';
- //echo '<pre>';
- //var_dump($_POST);
- //echo '</pre>';
-define ('DB_HOST','localhost');         // endereço do servidor de banco de dados
-define ('DB_USER','root');            // root
-define ('DB_PASSWORD','');           // ""
-define ('DB_DB','rh');              // nome banco
-define ('DB_PORT','3306');              // porta que o banco de dados recebe requisições
-define ('MYSQL_DSN',"mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_DB.";charset=UTF8");
+include_once ('../config/conf.php');
 //var_dump(JSON); -MITO
 $id = isset($_POST['id'])?$_POST['id']:0;  // teste ISSET é para verificar se os dados foram enviad
 $titulo = isset($_POST['titulo'])?$_POST['titulo']:'';

@@ -1,17 +1,17 @@
 <?php
 
-// parâmetros para a conexão
-define ('DB_HOST','localhost');         // endereço do servidor de banco de dados
-define ('DB_USER','root');            // root
-define ('DB_PASSWORD','');           // ""
-define ('DB_DB','rh');              // nome banco
-define ('DB_PORT','3306');              // porta que o banco de dados recebe requisições
-define ('MYSQL_DSN',"mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_DB.";charset=UTF8");
+include_once ('../config/conf.php');
 
 
   // pega variáveis enviadas via GET - são enviadas para edição de um registro
   $acao = isset($_GET['acao'])?$_GET['acao']:"";
   $id = isset($_GET['id'])?$_GET['id']:0;
+  $usr = isset($_GET['usr'])?$_GET['usr']:0;
+ /* if (3>2){
+      echo(
+      );
+  }
+  */
   // verifica se está editando um registro
   if ($acao == 'editar'){
       // buscar dados do usuário que estamos editando
@@ -52,7 +52,7 @@ define ('MYSQL_DSN',"mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_DB.";ch
 </head>
 <body class='container'>
     <h1>Master Gestão de RH</h1>
-    <nav> <!-- menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- menu -->
         <ul class="menu">
             <li id="cadastrar" class="itemenu"><a href="index.php">Cadastrar Funcionário</a></li>
             <li id="vagas" class="itemenu"><a href="../vagas/vagas.php">Nova Vaga de Emprego</a></li>
@@ -65,7 +65,7 @@ define ('MYSQL_DSN',"mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_DB.";ch
     <div class='row'>
         <div class='col'>
             <section id="formulario-cadastro">
-                <form action="" onsubmit="Verifica()" method="post" enctype="multipart/form-data">
+                <form action="acao.php" id="ffuncionario" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <div>
                             <label class="col-sm-2 col-form-label" for="nome"></label>
